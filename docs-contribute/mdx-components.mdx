@@ -1,0 +1,123 @@
+---
+sidebar_position: 3
+---
+
+# Using MDX Components
+
+MDX allows you to use React components directly in your markdown content. TheRSGuide includes several custom components to enhance your guides and make them more interactive.
+
+## What is MDX?
+
+MDX is markdown with JSX support. It allows you to:
+- Write markdown content
+- Use React components directly
+- Create interactive elements
+- Build rich, dynamic documentation
+
+## How to Use MDX Components
+
+### No Imports Needed
+
+All MDX components are automatically available in your files. **No import statements required!** Just use them directly:
+
+```mdx
+## My Guide
+
+You need <SkillReq>67 Firemaking</SkillReq> to burn magic logs.
+```
+
+### Basic Syntax
+
+MDX components use JSX syntax:
+
+```mdx
+<ComponentName prop="value">
+  content
+</ComponentName>
+```
+
+Or for self-closing components:
+
+```mdx
+<ComponentName />
+```
+
+## Example: Skill and Quest Requirements
+
+TheRSGuide provides components for checking skill levels and quest completion status:
+
+### Skill Requirements
+
+Use `<SkillReq>` to check if a player meets skill level requirements:
+
+```mdx
+- <SkillReq>67 Firemaking</SkillReq> for magic logs
+- <SkillReq>80 Attack</SkillReq> for high-level combat
+- <SkillReq>50 Woodcutting</SkillReq> for cutting logs
+```
+
+**How it works:**
+- Automatically detects skill level and name from the text
+- Shows green border if requirement is met
+- Shows red border if requirement is not met
+- Integrates with the player's username input
+
+### Quest Requirements
+
+Use `<QuestReq>` to check if a player has completed specific quests:
+
+```mdx
+- <QuestReq>Dragon Slayer</QuestReq> for rune platebody
+- <QuestReq>Desert Treasure</QuestReq> for Ancient Magicks
+```
+
+**How it works:**
+- Automatically detects quest names
+- Shows green border if quest is completed
+- Shows red border if quest is not completed
+
+## Live Examples
+
+Here are the components in action:
+
+#### Skill Requirements
+- **Firemaking**: You need <SkillReq>67 Firemaking</SkillReq> for magic logs
+- **Combat**: Aim for <SkillReq>80 Attack</SkillReq> for high-level slayer
+
+#### Quest Requirements  
+- **Dragon Slayer**: Complete <QuestReq>Dragon Slayer</QuestReq> first
+- **Desert Treasure**: You'll need <QuestReq>Desert Treasure</QuestReq> for Ancient Magicks
+
+## Component API Reference
+
+For detailed information about all available components, see the [Component API Reference](./mdx-components-api/) directory:
+
+- [SkillReq & QuestReq](./mdx-components-api/skill-quest-requirements)
+- [RequirementsChecker](./mdx-components-api/requirements-checker)
+- [UserInput](./mdx-components-api/user-input)
+
+## Best Practices
+
+### 1. Keep It Simple
+- Use components to enhance content, not replace it
+- Don't overuse interactive elements
+- Focus on improving user experience
+
+### 2. Test Your Components
+- Verify components render correctly
+- Check that requirement checking works
+- Ensure accessibility is maintained
+
+### 3. Consistent Usage
+- Use the same component patterns throughout guides
+- Follow established naming conventions
+- Maintain consistent styling
+
+## Next Steps
+
+Now that you understand the basics:
+- [Learn about the contribution workflow](./contribution-workflow)
+- [Explore the component API reference](./mdx-components-api/)
+- [Practice with our templates](./templates)
+
+MDX components can make your guides much more engaging and useful. Use them thoughtfully to enhance the user experience!

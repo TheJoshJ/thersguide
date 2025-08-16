@@ -1,63 +1,47 @@
 ---
-id: index
-title: Guides
-sidebar_label: Overview
+sidebar_position: 1
 ---
 
-# RuneScape 3 Guides
+# Game Guides
 
-Welcome to the comprehensive guides section! Here you'll find detailed information for every stage of your RuneScape 3 journey.
+Welcome to TheRSGuide's game guides section! This is where you'll find comprehensive guides for all aspects of RuneScape 3.
 
-## Guide Categories
+## Coming Soon
 
-### 🚀 **Early Game**
-Perfect for new players and those just starting their adventure in Gielinor.
-- **Overview**: Essential concepts and first steps
-- **Quests**: Beginner quests to get you started
-- **Skills**: Basic skill training methods
+We're currently working on creating detailed guides for:
 
-### ⚔️ **Mid Game**
-For players who have mastered the basics and are ready to advance.
-- **Overview**: Mid-game progression strategies
-- **Combat**: Intermediate combat techniques and equipment
-- **Money Making**: Profitable activities for mid-level players
+- **Early Game Content** - Tutorial Island, early quests, and beginner skills
+- **Mid Game Content** - Intermediate quests, skill training methods, and money-making
+- **Late Game Content** - High-level bosses, end-game content, and optimization
+- **Skill Guides** - Comprehensive training methods for all skills
+- **Quest Guides** - Step-by-step walkthroughs for all quests
 
-### 👑 **Late Game**
-Advanced strategies for experienced players seeking endgame content.
-- **Overview**: Late-game goals and progression
-- **Bosses**: High-level boss fighting strategies
-- **Endgame Content**: Completionist goals and advanced activities
+## How to Contribute
 
-### 📅 **Dailies**
-Daily activities that provide consistent rewards and progression.
-- **Overview**: Understanding daily activities
-- **Skilling**: Daily skill training activities
-- **Combat**: Daily combat challenges and rewards
-- **Quests**: Daily quest opportunities
+Want to help create these guides? Check out our [contribution guide](/contribute) to learn how you can:
 
-### 🎯 **Skills**
-Comprehensive guides for all RuneScape skills.
-- **Combat Skills**: Attack, Strength, Defence, Ranged, Magic, Prayer
-- **Gathering Skills**: Mining, Fishing, Woodcutting, Farming, Hunter
-- **Production Skills**: Smithing, Cooking, Crafting, Fletching, Runecrafting
-- **Support Skills**: Agility, Thieving, Slayer, Construction, Summoning
+- Write new guides
+- Improve existing content
+- Add images and visual content
+- Use our interactive MDX components
 
-## How to Use These Guides
+## Stay Updated
 
-1. **Start with Early Game** if you're new to RuneScape 3
-2. **Progress through Mid Game** as you gain experience
-3. **Use Late Game guides** when you're ready for advanced content
-4. **Check Dailies regularly** for consistent progression
-5. **Reference Skills guides** for specific training methods
+- **Follow our progress** on GitHub
+- **Join discussions** in our community
+- **Suggest guide topics** that would be most helpful
+- **Report issues** or outdated information
 
-## Quick Navigation
+## Guide Standards
 
-- **New Player?** → Start with [Early Game Overview](early-game/overview)
-- **Ready to Advance?** → Check [Mid Game Overview](mid-game/overview)
-- **Looking for Endgame?** → Explore [Late Game Overview](late-game/overview)
-- **Need Daily Activities?** → Browse our [Early Game Overview](early-game/overview) for beginner activities
-- **Want to Master a Skill?** → Choose from [Skills](skills/combat)
+When guides are published, they will include:
+
+- **Clear requirements** with interactive checking
+- **Step-by-step instructions** for all content
+- **Training methods** optimized for different playstyles
+- **Tips and tricks** from experienced players
+- **Visual aids** including maps and screenshots
 
 ---
 
-*Remember: RuneScape is a journey, not a destination. Take your time and enjoy the adventure!*
+*Guides are being created by the community. Have a specific guide you'd like to see? Let us know!*

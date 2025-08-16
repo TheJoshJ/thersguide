@@ -1,0 +1,31 @@
+.requirement {
+  display: inline;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: help;
+  white-space: nowrap;
+  position: relative;
+}
+
+.requirement.met {
+  color: inherit;
+}
+
+.requirement.notMet {
+  color: inherit;
+}
+
+/* Hover effects */
+.requirement:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .requirement.met {
+  color: inherit;
+}
+
+[data-theme='dark'] .requirement.notMet {
+  color: inherit;
+}

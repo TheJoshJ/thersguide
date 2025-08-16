@@ -26,6 +26,14 @@ export default function Home(): ReactNode {
           </div>
         </section>
         <HomepageFeatures />
+        <div className={styles.floatingContribute}>
+          <Link
+            className="button button--primary"
+            to="/contribute"
+            title="Help improve TheRSGuide">
+            Contribute
+          </Link>
+        </div>
       </main>
     </Layout>
   );

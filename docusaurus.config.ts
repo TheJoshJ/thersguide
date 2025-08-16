@@ -70,6 +70,17 @@ const config: Config = {
           'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'contribute',
+        path: 'docs-contribute',
+        routeBasePath: 'contribute',
+        sidebarPath: './sidebars-contribute.ts',
+        editUrl:
+          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+      },
+    ],
   ],
 
   presets: [
@@ -116,7 +127,25 @@ const config: Config = {
           label: 'Guides',
           docsPluginId: 'guides',
         },
+        {
+          type: 'search',
+          position: 'right',
+        },
       ],
+    },
+    // Algolia search configuration
+    algolia: {
+      appId: 'URXQKJNP5Z',
+      apiKey: 'df0ac6137cdda76db2473e1e7e10e362',
+      indexName: 'TheRSGuide',
+      contextualSearch: true,
+      searchParameters: {},
+      externalUrlRegex: 'external\\.com|domain\\.com',
+      replaceSearchResultPathname: {
+        from: '/docs/',
+        to: '/',
+      },
+      searchPagePath: 'search',
     },
     // Table of contents configuration
     docs: {
