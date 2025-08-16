@@ -258,7 +258,7 @@ Once your content is ready:
 
 - **[Markdown Guide](./markdown-guide.md)** - Formatting help
 - **[MDX Components](./mdx-components)** - Interactive components
-- **[Style Guide](./style-guide.md)** - Content standards
+- **[Guide Writing](./guide-writing.md)** - Content standards
 - **Community support** - Ask questions in discussions
 
 Your content is taking shape! 📝

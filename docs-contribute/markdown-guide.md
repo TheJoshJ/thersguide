@@ -206,8 +206,8 @@ Training dummies provide safe, consistent XP.
 ## Next Steps
 
 Now that you understand markdown basics:
-- [Learn about MDX components](./mdx-components.md)
-- [Practice with our templates](./templates.md)
-- [Review the style guide](./style-guide.md)
+- [Learn about MDX components](./mdx-components)
+- [Check the contribution workflow](./contribution-workflow)
+- [Review the guide writing guidelines](./guide-writing)
 
 Remember: Good formatting makes guides easier to read and more professional. Take time to structure your content well!
