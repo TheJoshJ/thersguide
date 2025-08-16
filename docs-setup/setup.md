@@ -67,7 +67,7 @@ Once you're logged in:
 
 ## Next Steps
 
-After completing setup, check out our [Getting Started](/docs/getting-started) guide to begin your adventure in Gielinor!
+After completing setup, check out our [Getting Started](../getting-started/) guide to begin your adventure in Gielinor!
 
 ---
 

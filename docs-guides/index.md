@@ -55,7 +55,7 @@ Comprehensive guides for all RuneScape skills.
 - **New Player?** → Start with [Early Game Overview](early-game/overview)
 - **Ready to Advance?** → Check [Mid Game Overview](mid-game/overview)
 - **Looking for Endgame?** → Explore [Late Game Overview](late-game/overview)
-- **Need Daily Activities?** → Browse [Dailies Overview](dailies/overview)
+- **Need Daily Activities?** → Browse our [Early Game Overview](early-game/overview) for beginner activities
 - **Want to Master a Skill?** → Choose from [Skills](skills/combat)
 
 ---

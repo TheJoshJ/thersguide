@@ -101,7 +101,7 @@ Once you're comfortable with the basics:
 1. Complete more beginner quests
 2. Set skill level goals
 3. Explore different areas of the world
-4. Check out our [Progressing](/docs/progressing) guide for advanced tips
+4. Check out our [Guides](../guides/) for advanced tips
 
 ---
 
