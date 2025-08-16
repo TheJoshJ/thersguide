@@ -391,7 +391,7 @@ RuneScape 3's mobile client offers the full game experience on mobile devices. T
 
 Once you have your mobile setup configured:
 
-1. **[Getting Started Guide](../getting-started/overview.md)** - Begin your adventure
+1. **[Getting Started Guide](../getting-started/)** - Begin your adventure
 2. **[Essential Settings](./essential-settings.md)** - Fine-tune your game options
 3. **[Interface Setup](./interface-setup.md)** - Customize your UI layout
 4. **[Performance Guide](./performance-guide.md)** - Optimize for your device

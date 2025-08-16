@@ -328,7 +328,7 @@ Once you have your settings configured:
 1. **[Interface Setup](./interface-setup.md)** - Customize your UI layout
 2. **[Performance Guide](./performance-guide.md)** - Fine-tune for your hardware
 3. **[Mobile Setup](./mobile-setup.md)** - Configure mobile-specific options
-4. **[Getting Started Guide](../getting-started/overview.md)** - Begin your adventure
+4. **[Getting Started Guide](../getting-started/)** - Begin your adventure
 
 ---
 

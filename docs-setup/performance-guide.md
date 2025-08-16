@@ -345,7 +345,7 @@ Optimizing your RuneScape 3 performance is crucial for a smooth and enjoyable ga
 Once you've optimized your performance:
 
 1. **[Mobile Setup](./mobile-setup.md)** - Configure mobile-specific options
-2. **[Getting Started Guide](../getting-started/overview.md)** - Begin your adventure
+2. **[Getting Started Guide](../getting-started/)** - Begin your adventure
 3. **[Essential Settings](./essential-settings.md)** - Fine-tune your game options
 4. **[Interface Setup](./interface-setup.md)** - Customize your UI layout
 

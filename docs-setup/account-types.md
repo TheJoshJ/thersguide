@@ -204,7 +204,7 @@ Once you've chosen your account type:
 1. **[Essential Settings](./essential-settings.md)** - Configure your game options
 2. **[Interface Setup](./interface-setup.md)** - Customize your UI for your playstyle
 3. **[Performance Guide](./performance-guide.md)** - Optimize your client
-4. **[Getting Started Guide](../getting-started/overview.md)** - Begin your adventure
+4. **[Getting Started Guide](../getting-started/)** - Begin your adventure
 
 ---
 

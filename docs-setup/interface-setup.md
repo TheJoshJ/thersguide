@@ -376,7 +376,7 @@ Once you have your interface configured:
 
 1. **[Performance Guide](./performance-guide.md)** - Optimize for your hardware
 2. **[Mobile Setup](./mobile-setup.md)** - Configure mobile-specific options
-3. **[Getting Started Guide](../getting-started/overview.md)** - Begin your adventure
+3. **[Getting Started Guide](../getting-started/)** - Begin your adventure
 4. **[Essential Settings](./essential-settings.md)** - Fine-tune your game options
 
 ---
