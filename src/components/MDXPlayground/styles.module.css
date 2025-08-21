@@ -1,0 +1,298 @@
+.playground {
+  display: flex;
+  height: calc(100vh - 120px); /* Account for navbar */
+  gap: 1px;
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+.editor,
+.preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ifm-background-color);
+}
+
+.editorHeader,
+.previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.editorHeader h3,
+.previewHeader h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.status {
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
+  font-weight: 500;
+}
+
+.errorIndicator {
+  font-size: 0.8rem;
+  color: var(--ifm-color-danger);
+  font-weight: 600;
+}
+
+.codeEditor {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 1rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  tab-size: 2;
+}
+
+.codeEditor::placeholder {
+  color: var(--ifm-color-content-secondary);
+}
+
+.previewContent {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--ifm-background-color);
+}
+
+.placeholder {
+  color: var(--ifm-color-content-secondary);
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.error {
+  color: var(--ifm-color-danger);
+  background-color: var(--ifm-color-danger-contrast-background);
+  border: 1px solid var(--ifm-color-danger);
+  border-radius: var(--ifm-border-radius);
+  padding: 1rem;
+}
+
+.error h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.error pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .playground {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 120px);
+  }
+  
+  .editor,
+  .preview {
+    min-height: 300px;
+  }
+}
+
+/* Error handling styles */
+.editorError {
+  background-color: var(--ifm-color-danger-contrast-background);
+  border: 1px solid var(--ifm-color-danger);
+  border-radius: var(--ifm-border-radius);
+  margin: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.editorError strong {
+  color: var(--ifm-color-danger);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.editorError pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.errorHelp {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.errorHelp ul {
+  margin: 0.5rem 0 0 1rem;
+  padding: 0;
+}
+
+.errorHelp li {
+  margin: 0.25rem 0;
+}
+
+.undefinedComponent {
+  background-color: var(--ifm-color-warning-contrast-background);
+  border: 2px dashed var(--ifm-color-warning);
+  border-radius: var(--ifm-border-radius);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  color: var(--ifm-color-warning-dark);
+}
+
+.undefinedComponent strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.undefinedComponent p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.undefinedComponent details {
+  margin-top: 0.5rem;
+}
+
+.undefinedComponent summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.undefinedComponent pre {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 0.5rem;
+  border-radius: var(--ifm-border-radius);
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.componentError {
+  background-color: var(--ifm-color-danger-contrast-background);
+  border: 1px solid var(--ifm-color-danger);
+  border-radius: var(--ifm-border-radius);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  color: var(--ifm-color-danger);
+}
+
+.componentError strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.componentError details {
+  margin-top: 0.5rem;
+}
+
+.componentError summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.componentError pre {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 0.5rem;
+  border-radius: var(--ifm-border-radius);
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.errorBoundary {
+  background-color: var(--ifm-color-danger-contrast-background);
+  border: 1px solid var(--ifm-color-danger);
+  border-radius: var(--ifm-border-radius);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  color: var(--ifm-color-danger);
+}
+
+.errorBoundary h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.errorBoundary p {
+  margin: 0.5rem 0;
+}
+
+.errorBoundary details {
+  margin: 0.5rem 0;
+}
+
+.errorBoundary summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.errorBoundary pre {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 0.5rem;
+  border-radius: var(--ifm-border-radius);
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.retryButton {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast);
+  border: none;
+  border-radius: var(--ifm-border-radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+/* Scrollbar styling for webkit browsers */
+.previewContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.previewContent::-webkit-scrollbar-track {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.previewContent::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+}
+
+.previewContent::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-400);
+}

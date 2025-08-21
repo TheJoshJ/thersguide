@@ -5,9 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'RuneScape 3 Guide',
+  title: 'TheRSGuide',
   tagline: 'Your complete guide to starting and progressing in RuneScape 3',
-  favicon: 'img/thersguy.png',
+  favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -36,58 +36,17 @@ const config: Config = {
     locales: ['en'],
   },
 
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'setup',
-        path: 'docs-setup',
-        routeBasePath: 'setup',
-        sidebarPath: './sidebars-setup.ts',
-        editUrl:
-          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'getting-started',
-        path: 'docs-getting-started',
-        routeBasePath: 'getting-started',
-        sidebarPath: './sidebars-getting-started.ts',
-        editUrl:
-          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'guides',
-        path: 'docs-guides',
-        routeBasePath: 'guides',
-        sidebarPath: './sidebars-guides.ts',
-        editUrl:
-          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'contribute',
-        path: 'docs-contribute',
-        routeBasePath: 'contribute',
-        sidebarPath: './sidebars-contribute.ts',
-        editUrl:
-          'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-      },
-    ],
-  ],
-
   presets: [
     [
       'classic',
       {
-        docs: false, // Disable the default docs plugin since we're using custom ones
+        docs: {
+          sidebarPath: './sidebars.ts',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         blog: false, // Disable blog since we don't need it
         theme: {
           customCss: './src/css/custom.css',
@@ -97,71 +56,36 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // Force dark mode and disable light mode toggle
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'TheRSGuide',
       logo: {
-        alt: 'RuneScape 3 Guide Logo',
-        src: 'img/thersguy.png',
+        alt: 'TheRSGuide Logo',
+        src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'setupSidebar',
+          sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Setup',
-          docsPluginId: 'setup',
+          label: 'Tutorial',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'gettingStartedSidebar',
-          position: 'left',
-          label: 'Getting Started',
-          docsPluginId: 'getting-started',
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'guidesSidebar',
-          position: 'left',
-          label: 'Guides',
-          docsPluginId: 'guides',
-        },
-        {
-          type: 'search',
+          to: '/playground',
+          label: 'Contribute',
           position: 'right',
         },
       ],
     },
-    // Algolia search configuration
-    algolia: {
-      appId: 'URXQKJNP5Z',
-      apiKey: 'df0ac6137cdda76db2473e1e7e10e362',
-      indexName: 'TheRSGuide',
-      contextualSearch: true,
-      searchParameters: {},
-      externalUrlRegex: 'external\\.com|domain\\.com',
-      replaceSearchResultPathname: {
-        from: '/docs/',
-        to: '/',
-      },
-      searchPagePath: 'search',
-    },
-    // Table of contents configuration
-    docs: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true,
-      },
-    },
-    // Table of contents settings
-    tableOfContents: {
-      minHeadingLevel: 2,
-      maxHeadingLevel: 6,
-    },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.dracula, // Use dark theme for code blocks
     },
   } satisfies Preset.ThemeConfig,
 };

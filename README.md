@@ -1,6 +1,8 @@
-# Website
+# TheRSGuide
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+
+TheRSGuide is your complete guide to starting and progressing in RuneScape 3.
 
 ## Installation
 

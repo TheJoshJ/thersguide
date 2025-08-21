@@ -8,32 +8,36 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        <Heading as="h1" className="hero__title">
+          {siteConfig.title}
+        </Heading>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro">
+            Docusaurus Tutorial - 5min ⏱️
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
+
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Welcome to TheRSGuide"
-      description="Complete beginner's guide to RuneScape 3. Learn setup, getting started, and progression strategies for new players.">
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />">
+      <HomepageHeader />
       <main>
-        <section className={clsx(styles.heroBanner)}>
-          <div className="container text--center">
-            <Heading as="h1" className="hero__title">
-              Welcome to TheRSGuide
-            </Heading>
-            <p className="hero__subtitle">
-              Your complete guide to starting and progressing in the world of Gielinor
-            </p>
-          </div>
-        </section>
         <HomepageFeatures />
-        <div className={styles.floatingContribute}>
-          <Link
-            className="button button--primary"
-            to="/contribute"
-            title="Help improve TheRSGuide">
-            Contribute
-          </Link>
-        </div>
       </main>
     </Layout>
   );

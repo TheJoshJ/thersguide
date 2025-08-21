@@ -7,50 +7,42 @@ type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
-  buttonText: string;
-  buttonLink: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Setup',
+    title: 'Easy to Use',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Get your RuneScape 3 account ready to play. Learn about account creation, 
-        client downloads, and essential settings for the best gaming experience.
+        Docusaurus was designed from the ground up to be easily installed and
+        used to get your website up and running quickly.
       </>
     ),
-    buttonText: 'Setup Guide',
-    buttonLink: '/setup/overview',
   },
   {
-    title: 'Getting Started',
+    title: 'Focus on What Matters',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Take your first steps in Gielinor. Complete the tutorial, understand basic 
-        controls, and learn how to navigate the world around you.
+        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
+        ahead and move your docs into the <code>docs</code> directory.
       </>
     ),
-    buttonText: 'Begin Journey',
-    buttonLink: '/getting-started',
   },
   {
-    title: 'Guides',
+    title: 'Powered by React',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Comprehensive guides for all stages of your RuneScape journey. From early game basics 
-        to late game strategies, skills, and daily activities.
+        Extend or customize your website layout by reusing React. Docusaurus can
+        be extended while reusing the same header and footer.
       </>
     ),
-    buttonText: 'View Guides',
-    buttonLink: '/guides',
   },
 ];
 
-function Feature({title, Svg, description, buttonText, buttonLink}: FeatureItem) {
+function Feature({title, Svg, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -59,9 +51,6 @@ function Feature({title, Svg, description, buttonText, buttonLink}: FeatureItem)
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
-        <a href={buttonLink} className={styles.featureButton}>
-          {buttonText}
-        </a>
       </div>
     </div>
   );
