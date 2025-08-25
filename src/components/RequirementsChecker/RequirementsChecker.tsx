@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRuneScape } from '../../contexts/RuneScapeContext';
-import styles from './styles.module.css';
+import { css } from '@emotion/react';
 
 interface Requirement {
   name: string;
@@ -15,6 +15,155 @@ interface RequirementsCheckerProps {
   description?: string;
   children: React.ReactNode; // Accept any React children, we'll convert to string
 }
+
+const containerStyles = css`
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+  }
+
+  [data-theme='dark'] & {
+    border-color: var(--ifm-color-emphasis-400);
+    background: var(--ifm-background-surface-color);
+  }
+`;
+
+const titleStyles = css`
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+`;
+
+const descriptionStyles = css`
+  margin: 0 0 0.75rem 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.85rem;
+  line-height: 1.4;
+`;
+
+const requirementsListStyles = css`
+  margin: 0.75rem 0;
+`;
+
+const requirementBaseStyles = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  background-color: transparent;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+`;
+
+const requirementMetStyles = css`
+  border-color: var(--ifm-color-success);
+  background-color: rgba(16, 185, 129, 0.1);
+
+  [data-theme='dark'] & {
+    background-color: rgba(16, 185, 129, 0.15);
+  }
+`;
+
+const requirementNotMetStyles = css`
+  border-color: var(--ifm-color-warning);
+  background-color: rgba(239, 68, 68, 0.1);
+
+  [data-theme='dark'] & {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+`;
+
+const requirementNeutralStyles = css`
+  border-color: var(--ifm-color-emphasis-400);
+  background-color: rgba(156, 163, 175, 0.1);
+  opacity: 0.8;
+`;
+
+const requirementNameStyles = css`
+  font-weight: 500;
+  color: var(--ifm-color-content);
+  flex: 1;
+`;
+
+const requirementLevelStyles = css`
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin: 0 0.75rem;
+  min-width: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+
+  @media (max-width: 768px) {
+    margin: 0;
+  }
+`;
+
+const summaryBaseStyles = css`
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  background-color: transparent;
+`;
+
+const summaryAllMetStyles = css`
+  border-color: var(--ifm-color-success);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--ifm-color-success-darkest);
+
+  [data-theme='dark'] & {
+    background-color: rgba(16, 185, 129, 0.15);
+  }
+`;
+
+const summaryNotAllMetStyles = css`
+  border-color: var(--ifm-color-warning);
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ifm-color-warning-darkest);
+
+  [data-theme='dark'] & {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+`;
+
+const noteStyles = css`
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.8;
+`;
+
+const getRequirementStyles = (met: boolean, neutral: boolean = false) => {
+  if (neutral) {
+    return [requirementBaseStyles, requirementNeutralStyles];
+  }
+  return [requirementBaseStyles, met ? requirementMetStyles : requirementNotMetStyles];
+};
+
+const getSummaryStyles = (allMet: boolean) => {
+  return [summaryBaseStyles, allMet ? summaryAllMetStyles : summaryNotAllMetStyles];
+};
 
 const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
   title,
@@ -91,10 +240,10 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
 
   if (!username) {
     return (
-      <div className={styles.container}>
-        <h3 className={styles.title}>{title}</h3>
-        {description && <p className={styles.description}>{description}</p>}
-        <div className={styles.noUsername}>
+      <div css={containerStyles}>
+        <h3 css={titleStyles}>{title}</h3>
+        {description && <p css={descriptionStyles}>{description}</p>}
+        <div css={noteStyles}>
           <p>Enter username to check requirements</p>
         </div>
       </div>
@@ -103,10 +252,10 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
 
   if (isLoading) {
     return (
-      <div className={styles.container}>
-        <h3 className={styles.title}>{title}</h3>
-        {description && <p className={styles.description}>{description}</p>}
-        <div className={styles.loading}>
+      <div css={containerStyles}>
+        <h3 css={titleStyles}>{title}</h3>
+        {description && <p css={descriptionStyles}>{description}</p>}
+        <div css={noteStyles}>
           <p>Loading...</p>
         </div>
       </div>
@@ -115,29 +264,29 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
 
   if (error) {
     return (
-      <div className={styles.container}>
-        <h3 className={styles.title}>{title}</h3>
-        {description && <p className={styles.description}>{description}</p>}
-        
+      <div css={containerStyles}>
+        <h3 css={titleStyles}>{title}</h3>
+        {description && <p css={descriptionStyles}>{description}</p>}
+
         {/* Show requirements neutrally even with error */}
-        <div className={styles.requirementsList}>
+        <div css={requirementsListStyles}>
           {requirements.map((requirement, index) => (
-            <div 
-              key={index} 
-              className={`${styles.requirement} ${styles.neutralState}`}
+            <div
+              key={index}
+              css={getRequirementStyles(false, true)}
             >
-              <span className={styles.requirementName}>{requirement.name}:</span>
-              <span className={styles.requirementLevel}>
-                {requirement.type === 'quest' ? 
-                  'Unknown' : 
+              <span css={requirementNameStyles}>{requirement.name}:</span>
+              <span css={requirementLevelStyles}>
+                {requirement.type === 'quest' ?
+                  'Unknown' :
                   requirement.level
                 }
               </span>
             </div>
           ))}
         </div>
-        
-        <div className={styles.errorNote}>
+
+        <div css={noteStyles}>
           Unable to fetch user data
         </div>
       </div>
@@ -146,29 +295,29 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
 
   if (!playerStats) {
     return (
-      <div className={styles.container}>
-        <h3 className={styles.title}>{title}</h3>
-        {description && <p className={styles.description}>{description}</p>}
-        
+      <div css={containerStyles}>
+        <h3 css={titleStyles}>{title}</h3>
+        {description && <p css={descriptionStyles}>{description}</p>}
+
         {/* Show requirements neutrally without data */}
-        <div className={styles.requirementsList}>
+        <div css={requirementsListStyles}>
           {requirements.map((requirement, index) => (
-            <div 
-              key={index} 
-              className={`${styles.requirement} ${styles.neutralState}`}
+            <div
+              key={index}
+              css={getRequirementStyles(false, true)}
             >
-              <span className={styles.requirementName}>{requirement.name}:</span>
-              <span className={styles.requirementLevel}>
-                {requirement.type === 'quest' ? 
-                  'Unknown' : 
+              <span css={requirementNameStyles}>{requirement.name}:</span>
+              <span css={requirementLevelStyles}>
+                {requirement.type === 'quest' ?
+                  'Unknown' :
                   requirement.level
                 }
               </span>
             </div>
           ))}
         </div>
-        
-        <div className={styles.noDataNote}>
+
+        <div css={noteStyles}>
           Enter username to check requirements
         </div>
       </div>
@@ -222,24 +371,24 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
   const allRequirementsMet = requirements.every(req => checkRequirement(req).met);
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>{title}</h3>
-      {description && <p className={styles.description}>{description}</p>}
-      
-      <div className={styles.requirementsList}>
+    <div css={containerStyles}>
+      <h3 css={titleStyles}>{title}</h3>
+      {description && <p css={descriptionStyles}>{description}</p>}
+
+      <div css={requirementsListStyles}>
         {requirements.map((requirement, index) => {
           const result = checkRequirement(requirement);
           return (
-            <div 
-              key={index} 
-              className={`${styles.requirement} ${result.met ? styles.met : styles.notMet}`}
+            <div
+              key={index}
+              css={getRequirementStyles(result.met)}
             >
-              <span className={styles.requirementName}>{requirement.name}:</span>
-              <span className={styles.requirementLevel}>
-                {requirement.type === 'quest' ? 
-                  (result.details || 'Not Found') : 
-                  result.met ? 
-                    requirement.level : 
+              <span css={requirementNameStyles}>{requirement.name}:</span>
+              <span css={requirementLevelStyles}>
+                {requirement.type === 'quest' ?
+                  (result.details || 'Not Found') :
+                  result.met ?
+                    requirement.level :
                     `${requirement.level} (${result.current})`
                 }
               </span>
@@ -248,10 +397,10 @@ const RequirementsChecker: React.FC<RequirementsCheckerProps> = ({
         })}
       </div>
 
-      <div className={`${styles.summary} ${allRequirementsMet ? styles.allMet : styles.notAllMet}`}>
+      <div css={getSummaryStyles(allRequirementsMet)}>
         <strong>
-          {allRequirementsMet 
-            ? 'All requirements met!' 
+          {allRequirementsMet
+            ? 'All requirements met!'
             : 'Some requirements not met'}
         </strong>
       </div>

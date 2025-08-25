@@ -1,6 +1,72 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useRuneScape } from '../../contexts/RuneScapeContext';
-import styles from './styles.module.css';
+import { css } from '@emotion/react';
+
+const containerStyles = css`
+  margin: 1rem 0;
+  width: 50%;
+  max-width: 300px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: none;
+  }
+`;
+
+const inputStyles = css`
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &[data-theme='dark'] {
+    background: var(--ifm-background-color);
+    border-color: var(--ifm-color-emphasis-400);
+    color: var(--ifm-color-content);
+  }
+`;
+
+const inputErrorStyles = css`
+  border-color: var(--ifm-color-danger);
+`;
+
+const inputLoadingStyles = css`
+  border-color: var(--ifm-color-warning);
+`;
+
+const statusTextStyles = css`
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+`;
+
+const statusTextLoadedStyles = css`
+  color: var(--ifm-color-success);
+`;
+
+const statusTextErrorStyles = css`
+  color: var(--ifm-color-danger);
+`;
 
 const UserInput: React.FC = () => {
   const { setUsername, playerStats, isLoading, error, username } = useRuneScape();
@@ -81,30 +147,41 @@ const UserInput: React.FC = () => {
     }
   };
 
-  const getStatusClass = () => {
+  const getInputStatusStyles = () => {
+    switch (status) {
+      case 'error':
+        return inputErrorStyles;
+      case 'loading':
+        return inputLoadingStyles;
+      default:
+        return null;
+    }
+  };
+
+  const getStatusTextStyles = () => {
     switch (status) {
       case 'loaded':
-        return styles.loaded;
+        return [statusTextStyles, statusTextLoadedStyles];
       case 'error':
-        return styles.error;
+        return [statusTextStyles, statusTextErrorStyles];
       default:
-        return '';
+        return [statusTextStyles];
     }
   };
 
   return (
-    <div className={styles.container}>
+    <div css={containerStyles}>
       <input
         type="text"
         value={inputValue}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
-        className={`${styles.input} ${getStatusClass()}`}
+        css={[inputStyles, getInputStatusStyles()]}
         placeholder="Type username here..."
         aria-label="Enter Your Username"
       />
       {status !== 'idle' && (
-        <div className={`${styles.statusText} ${getStatusClass()}`}>
+        <div css={getStatusTextStyles()}>
           {getStatusText()}
         </div>
       )}

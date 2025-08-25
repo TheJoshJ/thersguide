@@ -1,8 +1,8 @@
 import React from 'react';
 import type { MDXComponents } from 'mdx/types';
-import UserInput from '../components/UserInput/index';
-import RequirementsChecker from '../components/RequirementsChecker/index';
-import InlineRequirement from '../components/InlineRequirement/index';
+import UserInput from '../components/UserInput/UserInput';
+import RequirementsChecker from '../components/RequirementsChecker/RequirementsChecker';
+import InlineRequirement from '../components/InlineRequirement/InlineRequirement';
 
 export default function useMDXComponents(components: MDXComponents): MDXComponents {
   const customComponents: MDXComponents = {

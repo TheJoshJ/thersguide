@@ -1,10 +1,48 @@
 import React from 'react';
 import { useRuneScape } from '../../contexts/RuneScapeContext';
-import styles from './styles.module.css';
+import { css } from '@emotion/react';
 
 interface InlineRequirementProps {
   children: string;
 }
+
+const requirementBaseStyles = css`
+  display: inline;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: help;
+  white-space: nowrap;
+  position: relative;
+  color: inherit;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const requirementMetStyles = css`
+  border: 2px solid #10b981;
+  border-radius: 4px;
+  padding: 2px 6px;
+  background-color: rgba(16, 185, 129, 0.1);
+  transition: all 0.2s ease-in-out;
+`;
+
+const requirementNotMetStyles = css`
+  border: 2px solid #ef4444;
+  border-radius: 4px;
+  padding: 2px 6px;
+  background-color: rgba(239, 68, 68, 0.1);
+  transition: all 0.2s ease-in-out;
+`;
+
+const getRequirementStyles = (isMet: boolean | null) => {
+  if (isMet === null) {
+    return [requirementBaseStyles];
+  }
+  return [requirementBaseStyles, isMet ? requirementMetStyles : requirementNotMetStyles];
+};
 
 const InlineRequirement: React.FC<InlineRequirementProps> = ({ children }) => {
   const { username, playerStats, isLoading, error } = useRuneScape();
@@ -34,27 +72,24 @@ const InlineRequirement: React.FC<InlineRequirementProps> = ({ children }) => {
 
   const requirement = parseRequirement(children);
 
-  // Always render something visible for debugging
-  const baseClass = styles.requirement;
-  
   // If no username, just show the text normally
   if (!username) {
-    return <span className={baseClass}>{children}</span>;
+    return <span css={getRequirementStyles(null)}>{children}</span>;
   }
 
   // If loading, show with loading indicator
   if (isLoading) {
-    return <span className={baseClass}>{children}</span>;
+    return <span css={getRequirementStyles(null)}>{children}</span>;
   }
 
   // If error, show with error indicator
   if (error) {
-    return <span className={baseClass}>{children}</span>;
+    return <span css={getRequirementStyles(null)}>{children}</span>;
   }
 
   // If no player stats, show normally
   if (!playerStats) {
-    return <span className={baseClass}>{children}</span>;
+    return <span css={getRequirementStyles(null)}>{children}</span>;
   }
 
   // Check if requirement is met
@@ -78,20 +113,10 @@ const InlineRequirement: React.FC<InlineRequirementProps> = ({ children }) => {
     }
   }
 
-  // Determine the CSS class based on requirement status
-  const statusClass = isMet ? styles.met : styles.notMet;
-
   return (
-    <span 
-      className={`${baseClass} ${statusClass}`}
+    <span
+      css={getRequirementStyles(isMet)}
       title={`${requirement.displayText}: ${isMet ? 'Requirement met' : 'Requirement not met'} (${currentValue}/${requiredValue})`}
-      style={{
-        border: isMet ? '2px solid #10b981' : '2px solid #ef4444',
-        borderRadius: '4px',
-        padding: '2px 6px',
-        backgroundColor: isMet ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
-        transition: 'all 0.2s ease-in-out'
-      }}
     >
       {children}
     </span>

@@ -1,12 +1,17 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import HomepageFeatures from '@site/src/components/HomepageFeatures/index';
 import Heading from '@theme/Heading';
+import styled from '@emotion/styled';
 
-import styles from './index.module.css';
+const HeroBanner = styled.section`
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+`;
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
@@ -15,7 +20,7 @@ export default function Home(): ReactNode {
       title="Welcome to TheRSGuide"
       description="Complete beginner's guide to RuneScape 3. Learn setup, getting started, and progression strategies for new players.">
       <main>
-        <section className={clsx(styles.heroBanner)}>
+        <HeroBanner>
           <div className="container text--center">
             <Heading as="h1" className="hero__title">
               Welcome to TheRSGuide
@@ -24,16 +29,8 @@ export default function Home(): ReactNode {
               Your complete guide to starting and progressing in the world of Gielinor
             </p>
           </div>
-        </section>
+        </HeroBanner>
         <HomepageFeatures />
-        <div className={styles.floatingContribute}>
-          <Link
-            className="button button--primary"
-            to="/contribute"
-            title="Help improve TheRSGuide">
-            Contribute
-          </Link>
-        </div>
       </main>
     </Layout>
   );
